@@ -1,0 +1,18 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: myservice
+  name: myservice
+  namespace: my-app
+spec:
+  ports:
+  - name: iti-app
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: iti-app
+  type: LoadBalancer
+

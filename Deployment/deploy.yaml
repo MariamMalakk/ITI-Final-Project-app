@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iti-app
+  name: iti-app
+  namespace: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iti-app
+  template:
+    metadata:
+      labels:
+        app: iti-app
+    spec:
+      containers:
+      - image: mariammalak/iti-final-app:${BUILD_NUMBER}
+        name: iti-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources: {}
